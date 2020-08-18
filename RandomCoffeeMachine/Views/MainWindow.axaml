@@ -1,0 +1,37 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:RandomCoffeeMachine.ViewModels;assembly=RandomCoffeeMachine"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RandomCoffeeMachine.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RandomCoffeeMachine"
+        FontSize="18">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <DockPanel>
+    <Grid Width="200" RowDefinitions="50,50,50,50,*" DockPanel.Dock="Left">
+        <Button Grid.Row="0" Margin="3" Command="{Binding MakeRandomCoffeeCommand}">Make Coffee</Button>
+        <TextBox Grid.Row="1" Margin="3" Text="{Binding NewUserName}" />
+        <Button Grid.Row="2" Margin="3" Command="{Binding AddUserCommand}">Add User</Button>
+        <Button Grid.Row="3" Margin="3" Command="{Binding RemoveUserCommand}">Remove User</Button>
+        <ScrollViewer Grid.Row="4" Margin="3">
+          <ListBox Items="{Binding Users}" 
+                   SelectedItem="{Binding SelectedUser}"
+                   ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding}"/>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+          </ListBox>
+        </ScrollViewer>
+    </Grid>
+    <TextBox Margin="3" Text="{Binding RandomCoffee}" TextWrapping="Wrap"/>
+  </DockPanel>
+
+</Window>

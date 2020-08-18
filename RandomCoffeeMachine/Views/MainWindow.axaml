@@ -14,7 +14,7 @@
     </Design.DataContext>
 
   <DockPanel>
-    <Grid Width="200" RowDefinitions="50,50,50,50,*" DockPanel.Dock="Left">
+    <Grid Width="350" RowDefinitions="50,50,50,50,*" DockPanel.Dock="Left">
         <Button Grid.Row="0" Margin="3" Command="{Binding MakeRandomCoffeeCommand}">Make Coffee</Button>
         <TextBox Grid.Row="1" Margin="3" Text="{Binding NewUserName}" />
         <Button Grid.Row="2" Margin="3" Command="{Binding AddUserCommand}">Add User</Button>
